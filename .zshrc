@@ -101,5 +101,5 @@ fi
 export PATH=$PATH:/usr/local/go/bin
 export GOROOT=$HOME/dev/go
 
-# PyCharm
-export PATH=$PATH:/home/user/dev/pycharm-2017.2.4/bin/
+export PATH=$PATH:/home/user/dev/esp32/xtensa-esp32-elf/bin
+export IDF_PATH=/home/user/dev/esp32/esp-idf
