@@ -1,26 +1,30 @@
+export TERM="xterm-256color"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/user/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
-# Set color
-export TERM="xterm-256color"
-
-# zsh tmux settings
-ZSH_TMUX_AUTOSTART='true'
-
-# Awesome Fonts
-POWERLEVEL9K_MODE="nerdfont-complete"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
+POWERLEVEL9K_MODE='nerdfont-complete'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
-#ZSH_THEME="pygmalion"
 ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir rbenv vcs virtualenv)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs status history time)
+POWERLEVEL9K_VIRTUALENV_BACKGROUND=36
+#POWERLEVEL9K_VIRTUALENV_FOREGROUND='white'
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -54,7 +58,10 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -64,7 +71,9 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux python virtualenv virtualenvwrapper)
+plugins=(
+  git , virtualenv
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,11 +85,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -96,10 +105,4 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Golang
-export PATH=$PATH:/usr/local/go/bin
-export GOROOT=$HOME/dev/go
-
-export PATH=$PATH:/home/user/dev/esp32/xtensa-esp32-elf/bin
-export IDF_PATH=/home/user/dev/esp32/esp-idf
+alias pipenv="python3 -m pipenv"
